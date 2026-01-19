@@ -1,0 +1,327 @@
+/* whale.css — Coquette Bunny Theme + Animations */
+:root{
+    --bg1:#120814;        /* deep berry */
+    --bg2:#0e0b18;        /* midnight violet */
+    --card: rgba(255, 255, 255, 0.08);
+    --glass: rgba(255, 255, 255, 0.10);
+    --line: rgba(255,255,255,.16);
+    --text: rgba(255,255,255,.92);
+    --muted: rgba(255,255,255,.70);
+  
+    /* coquette palette */
+    --pink: #ffb7d5;
+    --rose: #ff7fb8;
+    --lilac:#cbb6ff;
+    --cream:#fff3f8;
+  
+    --radius: 20px;
+    --shadow: 0 22px 60px rgba(0,0,0,.55);
+  }
+  
+  *{ box-sizing:border-box; }
+  html, body{ height:100%; }
+  
+  body{
+    margin:0;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+    color: var(--text);
+    background:
+      radial-gradient(800px 420px at 20% 15%, rgba(255,127,184,.20), transparent 60%),
+      radial-gradient(900px 520px at 80% 20%, rgba(203,182,255,.18), transparent 60%),
+      radial-gradient(700px 520px at 55% 92%, rgba(255,183,213,.12), transparent 60%),
+      linear-gradient(180deg, var(--bg1), var(--bg2));
+    overflow-x:hidden;
+  }
+  
+  /* floating sparkles */
+  .sparkles{
+    position: fixed;
+    inset: 0;
+    pointer-events:none;
+    z-index: 0;
+    opacity: .9;
+  }
+  .sp{
+    position:absolute;
+    font-size: 16px;
+    color: rgba(255, 243, 248, .75);
+    filter: drop-shadow(0 10px 18px rgba(255,127,184,.16));
+    animation: floaty 7s ease-in-out infinite;
+  }
+  .sp1{ top: 14%; left: 9%;  animation-duration: 8s; }
+  .sp2{ top: 22%; right: 12%; animation-duration: 10s; font-size: 18px; }
+  .sp3{ bottom: 18%; left: 18%; animation-duration: 9s; }
+  .sp4{ bottom: 12%; right: 16%; animation-duration: 11s; font-size: 14px; }
+  .sp5{ top: 52%; left: 82%; animation-duration: 12s; }
+  
+  @keyframes floaty{
+    0%,100%{ transform: translateY(0) rotate(0deg); opacity:.65; }
+    50%{ transform: translateY(-18px) rotate(6deg); opacity:1; }
+  }
+  
+  .wrap{
+    min-height:100vh;
+    display:grid;
+    place-items:center;
+    padding: 28px 14px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* card with cute glow */
+  .card{
+    width: min(590px, 100%);
+    padding: 22px 18px 18px;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(12px);
+    position: relative;
+    overflow:hidden;
+  }
+  
+  /* soft ribbon sheen */
+  .card::before{
+    content:"";
+    position:absolute;
+    inset: -2px;
+    background:
+      radial-gradient(600px 240px at 20% 10%, rgba(255,183,213,.18), transparent 55%),
+      radial-gradient(600px 260px at 85% 18%, rgba(203,182,255,.16), transparent 55%),
+      radial-gradient(520px 240px at 40% 95%, rgba(255,127,184,.10), transparent 55%);
+    pointer-events:none;
+  }
+  
+  /* back link */
+  .back{
+    position: relative;
+    display:inline-flex;
+    align-items:center;
+    gap: 8px;
+    color: rgba(255,255,255,.78);
+    text-decoration:none;
+    font-weight: 800;
+    font-size: 14px;
+    padding: 10px 12px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,.12);
+    background: rgba(255,255,255,.04);
+    transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+  }
+  .back:hover{
+    transform: translateY(-1px);
+    background: rgba(255,255,255,.08);
+    color: var(--cream);
+  }
+  
+  /* title */
+  .title{
+    position: relative;
+    margin: 14px 0 14px;
+    text-align:center;
+    font-size: 36px;
+    font-weight: 1000;
+    letter-spacing: 1.1px;
+    background: linear-gradient(90deg, var(--cream), var(--pink), var(--lilac));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color: transparent;
+    filter: drop-shadow(0 18px 34px rgba(255,127,184,.10));
+  }
+  
+  .bunny{
+    display:inline-block;
+    transform-origin: 50% 100%;
+    animation: bop 1.9s ease-in-out infinite;
+    margin-left: 6px;
+  }
+  @keyframes bop{
+    0%,100%{ transform: translateY(0) rotate(0deg); }
+    50%{ transform: translateY(-3px) rotate(-6deg); }
+  }
+  
+  /* profile section */
+  .profile{
+    position: relative;
+    display:grid;
+    place-items:center;
+    margin: 8px 0 14px;
+  }
+  
+  /* pastel frame ring */
+  .photoFrame{
+    position:absolute;
+    width: 234px;
+    height: 234px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,.18);
+    background:
+      radial-gradient(circle at 30% 20%, rgba(255,243,248,.15), transparent 40%),
+      conic-gradient(from 200deg, rgba(255,183,213,.45), rgba(203,182,255,.40), rgba(255,127,184,.35), rgba(255,183,213,.45));
+    filter: blur(.0px);
+    opacity: .35;
+    animation: halo 4.6s ease-in-out infinite;
+  }
+  @keyframes halo{
+    0%,100%{ transform: scale(1); opacity:.30; }
+    50%{ transform: scale(1.03); opacity:.46; }
+  }
+  
+  .photo{
+    width: 210px;
+    height: 210px;
+    border-radius: 999px;
+    object-fit: cover;
+    border: 1px solid rgba(255,255,255,.18);
+    background: rgba(255,255,255,.05);
+    box-shadow: 0 22px 54px rgba(0,0,0,.55);
+    position: relative;
+    transition: transform 220ms ease;
+  }
+  .profile:hover .photo{
+    transform: translateY(-2px) scale(1.01);
+  }
+  
+  /* ribbons */
+  .ribbons{
+    position:absolute;
+    width: 290px;
+    height: 250px;
+    pointer-events:none;
+  }
+  .rb{
+    position:absolute;
+    font-size: 18px;
+    filter: drop-shadow(0 10px 16px rgba(255,127,184,.12));
+    animation: ribbonFloat 5.2s ease-in-out infinite;
+  }
+  .rb1{ top: 10px; left: 26px; transform: rotate(-12deg); }
+  .rb2{ bottom: 16px; right: 28px; transform: rotate(10deg); animation-duration: 6.2s; }
+  
+  @keyframes ribbonFloat{
+    0%,100%{ transform: translateY(0) rotate(var(--r, 0deg)); opacity:.85; }
+    50%{ transform: translateY(-10px) rotate(var(--r, 0deg)); opacity:1; }
+  }
+  
+  /* bio text */
+  .bio{
+    position: relative;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.75;
+    padding: 4px 4px 0;
+  }
+  .bio strong{
+    color: var(--cream);
+  }
+  
+  /* IG box */
+  .igbox{
+    margin-top: 16px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 12px;
+    padding: 12px 12px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,.16);
+    background: rgba(255,255,255,.05);
+    transition: transform 180ms ease, background 180ms ease;
+  }
+  .igbox:hover{
+    transform: translateY(-2px);
+    background: rgba(255,255,255,.08);
+  }
+  
+  .igleft{
+    display:flex;
+    align-items:center;
+    gap: 10px;
+  }
+  
+  .logo{
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    object-fit: cover;
+    border: 1px solid rgba(255,255,255,.16);
+    background: rgba(255,255,255,.07);
+  }
+  
+  .iglabel{
+    font-size: 12px;
+    color: rgba(255,255,255,.65);
+    font-weight: 800;
+  }
+  .iglink{
+    display:inline-block;
+    margin-top: 4px;
+    font-weight: 1000;
+    letter-spacing: .3px;
+    color: var(--cream);
+    text-decoration:none;
+    position: relative;
+  }
+  .iglink::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-2px;
+    width:100%;
+    height:2px;
+    background: linear-gradient(90deg, rgba(255,183,213,.8), rgba(203,182,255,.8));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 180ms ease;
+  }
+  .iglink:hover::after{ transform: scaleX(1); }
+  
+  /* connect button */
+  .igbtn{
+    text-decoration:none;
+    font-weight: 1000;
+    padding: 10px 12px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,183,213,.40);
+    background: linear-gradient(135deg, rgba(255,183,213,.18), rgba(203,182,255,.16));
+    color: var(--cream);
+    transition: transform 180ms ease, filter 180ms ease;
+  }
+  .igbtn:hover{
+    transform: translateY(-1px) scale(1.01);
+    filter: brightness(1.08);
+  }
+  
+  /* footer */
+  .footer{
+    margin: 14px 0 0;
+    text-align:center;
+    color: rgba(255,255,255,.55);
+    font-size: 12px;
+  }
+  
+  /* reveal animation (JS adds .is-in) */
+  [data-reveal]{
+    opacity: 0;
+    transform: translateY(14px);
+    filter: blur(6px);
+    transition:
+      opacity 600ms ease,
+      transform 600ms cubic-bezier(.2,.8,.2,1),
+      filter 600ms ease;
+    will-change: opacity, transform, filter;
+  }
+  .is-in{
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+  
+  /* small devices */
+  @media (max-width: 420px){
+    .title{ font-size: 32px; }
+    .photoFrame{ width: 224px; height: 224px; }
+    .photo{ width: 200px; height: 200px; }
+  }
+  

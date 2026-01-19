@@ -1,0 +1,159 @@
+<!-- theory.html -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MBTI Flipbook • Coquette Book</title>
+  <link rel="stylesheet" href="theory.css" />
+</head>
+<body>
+  <!-- Coquette background layers -->
+  <div class="bg bg--gradient" aria-hidden="true"></div>
+  <div class="bg bg--lace" aria-hidden="true"></div>
+  <div class="bg bg--bows" aria-hidden="true"></div>
+  <div class="bg bg--sparkle" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="leftbar">
+      <a class="homebtn" href="home.html" aria-label="Kembali ke home.html">
+        <span class="homebtn__icon">⌂</span>
+        <span class="homebtn__text">Back to Home</span>
+      </a>
+
+      <div class="brand">
+        <div class="brand__mark" aria-hidden="true">🎀</div>
+        <div class="brand__text">
+          <div class="brand__title">MBTI Theory Book</div>
+          <div class="brand__subtitle">Coquette • page curl (drag corner)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="btn" id="btnPrev" aria-label="Halaman sebelumnya">
+        <span class="btn__icon">‹</span><span class="btn__text">Prev</span>
+      </button>
+      <button class="btn btn--primary" id="btnNext" aria-label="Halaman selanjutnya">
+        <span class="btn__text">Next</span><span class="btn__icon">›</span>
+      </button>
+
+      <div class="divider" aria-hidden="true"></div>
+
+      <button class="btn btn--ghost" id="btnSearch" aria-label="Cari materi">
+        <span class="btn__icon">🔍</span><span class="btn__text">Cari</span>
+      </button>
+
+      <button class="btn btn--ghost" id="btnToc" aria-label="Buka daftar isi">
+        <span class="btn__icon">☰</span><span class="btn__text">TOC</span>
+      </button>
+      <button class="btn btn--ghost" id="btnHelp" aria-label="Buka bantuan">
+        <span class="btn__icon">?</span><span class="btn__text">Help</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="stage">
+    <section class="book-area" aria-label="Buku MBTI">
+      <div class="book-shell">
+        <div class="book-glow" aria-hidden="true"></div>
+
+        <div class="book" id="book" role="group" aria-roledescription="book">
+          <div class="spine" aria-hidden="true"></div>
+
+          <div class="spread" id="spread">
+            <article class="page page--left" id="leftPage" aria-label="Halaman kiri"></article>
+            <article class="page page--right" id="rightPage" aria-label="Halaman kanan"></article>
+
+            <!-- turning sheet overlay (drag-curl) -->
+            <article class="turnsheet" id="turnSheet" aria-hidden="true">
+              <div class="turnsheet__front"></div>
+              <div class="turnsheet__back"></div>
+              <div class="turnsheet__curl" aria-hidden="true"></div>
+              <div class="turnsheet__shadow" aria-hidden="true"></div>
+            </article>
+
+            <div class="edge edge--left" aria-hidden="true"></div>
+            <div class="edge edge--right" aria-hidden="true"></div>
+
+            <!-- Tap zones -->
+            <button class="zone zone--left" id="zoneLeft" aria-label="Tap kiri untuk Prev"></button>
+            <button class="zone zone--right" id="zoneRight" aria-label="Tap kanan untuk Next"></button>
+
+            <!-- Drag handles (ONLY these start curl) -->
+            <button class="cornerHandle cornerHandle--br" id="dragNext" aria-label="Drag pojok kanan bawah untuk Next"></button>
+            <button class="cornerHandle cornerHandle--bl" id="dragPrev" aria-label="Drag pojok kiri bawah untuk Prev"></button>
+
+            <!-- visual cue corners -->
+            <div class="corner corner--br" aria-hidden="true"></div>
+            <div class="corner corner--bl" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <div class="hud">
+          <div class="pill" id="progressPill">Halaman 1 / 30</div>
+          <div class="pill pill--muted" id="hintPill">Drag pojok bawah untuk curl • Tap untuk flip</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- TOC Modal -->
+  <div class="modal" id="tocModal" aria-hidden="true" role="dialog" aria-label="Daftar isi">
+    <div class="modal__overlay" data-close="toc"></div>
+    <div class="modal__panel">
+      <div class="modal__head">
+        <div class="modal__title">Daftar Isi</div>
+        <button class="iconbtn" data-close="toc" aria-label="Tutup TOC">✕</button>
+      </div>
+      <div class="modal__body" id="tocList"></div>
+      <div class="modal__foot">
+        <div class="note">Tip: klik item untuk lompat. Keyboard: ← →, Home, End.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Help Modal -->
+  <div class="modal" id="helpModal" aria-hidden="true" role="dialog" aria-label="Bantuan">
+    <div class="modal__overlay" data-close="help"></div>
+    <div class="modal__panel">
+      <div class="modal__head">
+        <div class="modal__title">Cara pakai</div>
+        <button class="iconbtn" data-close="help" aria-label="Tutup bantuan">✕</button>
+      </div>
+      <div class="modal__body">
+        <ul class="help">
+          <li><b>Page curl:</b> drag pojok kanan bawah (Next) / kiri bawah (Prev).</li>
+          <li><b>Tap:</b> tap area kanan/kiri untuk flip cepat.</li>
+          <li><b>Keyboard:</b> ← / →, Home, End.</li>
+          <li><b>Cari:</b> cari kata kunci → klik hasil → lompat halaman.</li>
+        </ul>
+      </div>
+      <div class="modal__foot">
+        <div class="note note--small">Kalau kamu mau “lipatan segitiga” lebih realistis, bilang ya.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search Modal -->
+  <div class="modal" id="searchModal" aria-hidden="true" role="dialog" aria-label="Cari materi">
+    <div class="modal__overlay" data-close="search"></div>
+    <div class="modal__panel">
+      <div class="modal__head">
+        <div class="modal__title">Cari Materi</div>
+        <button class="iconbtn" data-close="search" aria-label="Tutup Cari">✕</button>
+      </div>
+      <div class="modal__body">
+        <input id="searchInput" class="searchInput" type="text" placeholder="Cari: fungsi, axis, INFJ, Te, Jung..." />
+        <div class="searchHint">Tip: coba kata kunci seperti <b>Ni</b>, <b>Se</b>, <b>Te</b>, <b>Fe</b>, <b>Axis</b>, <b>Diplomats</b>.</div>
+        <div id="searchResults" class="searchResults"></div>
+      </div>
+      <div class="modal__foot">
+        <div class="note">Hasil akan muncul otomatis saat kamu mengetik.</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="theory.js"></script>
+</body>
+</html>

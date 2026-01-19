@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Violet Assistant Information</title> 
+  <link rel="stylesheet" href="ai.css" />
+
+</head>
+
+<body>
+  <div class="app">
+
+    <!-- HEADER -->
+    <header class="top">
+      <div class="brand">
+        <div class="bubble-orb"></div>
+        <div class="title-pill, contact-btn">
+          <h2>Violet Assistant Information</h2>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <form action="home.html">
+          <button class="contact-btn" type="submit">Home</button>
+        </form>
+        
+
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="main">
+      <section class="canvas">
+
+        <div class="chat-area, contact-btn">
+          <div id="chat" class="chat"></div>
+        </div>
+
+        <div class="disclaimer">
+          <strong>Catatan:</strong> MBTI & fungsi kognitif adalah alat edukasi dan refleksi diri, bukan diagnosis klinis.
+        </div>
+
+      </section>
+    </main>
+
+    <!-- INPUT -->
+    <footer class="composer">
+      <div class="input-wrap">
+        <input id="textInput" type="text" placeholder="Ketik pesan…" />
+      </div>
+
+      <button id="micBtn" class="icon-btn">🎤</button>
+      <button id="sendBtn" class="icon-btn">➤</button>
+    </footer>
+
+  </div>
+
+  <!-- hidden upload -->
+  <input id="profileInput" type="file" accept="image/*" hidden />
+
+  <script src="ai.js"></script>
+</body>
+</html>

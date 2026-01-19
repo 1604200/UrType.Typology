@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Login</title>
+
+  <!-- IMPORTANT: pakai ./ dan v=1 biar gak kena cache -->
+  <link rel="stylesheet" href="./login.css?v=1" />
+</head>
+<body>
+  <div class="bg">
+    <div class="gingham"></div>
+    <div class="lace"></div>
+    <div class="grain"></div>
+    <div class="sparkles" aria-hidden="true"></div>
+    <div class="hearts" aria-hidden="true"></div>
+  </div>
+
+  <main class="wrap">
+    <section class="card" aria-label="Login Card" id="card">
+      <header class="card__head">
+        <div class="badge" aria-hidden="true">
+          <span class="badge__dot"></span>
+          <span class="badge__text">Login</span>
+        </div>
+
+        <h1 class="title">
+          Welcome back
+          <span class="title__sub" id="titleSub">Sign in to continue</span>
+        </h1>
+
+        <p class="subtitle" id="subtitle">Masukkan email & password untuk masuk.</p>
+      </header>
+
+      <div class="card__body">
+        <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+        <!-- SAVED ACCOUNT VIEW -->
+        <section class="saved is-hidden" id="savedView" aria-label="Saved Account">
+          <div class="profile">
+            <div class="avatarWrap">
+              <img id="avatarImg" class="avatar" alt="Foto profil" />
+              <button class="avatarBtn" id="btnChangePhoto" type="button">Change</button>
+              <input id="fileAvatar" type="file" accept="image/*" hidden />
+            </div>
+
+            <div class="profileInfo">
+              <div class="usernameRow">
+                <span class="username" id="savedUsername">Username</span>
+                <button class="link mini" id="btnEditName" type="button">Edit</button>
+              </div>
+              <div class="email" id="savedEmail">email@gmail.com</div>
+            </div>
+          </div>
+
+          <div class="editName is-hidden" id="editNameBox">
+            <div class="input compact">
+              <input id="usernameInput" type="text" placeholder=" " maxlength="24" />
+              <label for="usernameInput">Username</label>
+              <span class="input__line" aria-hidden="true"></span>
+            </div>
+
+            <div class="row2">
+              <button class="btn btn--soft" id="btnSaveProfile" type="button">
+                <span class="btn__shine" aria-hidden="true"></span>
+                <span class="btn__text">Save</span>
+                <span class="btn__loader" aria-hidden="true"></span>
+              </button>
+              <button class="link" id="btnCancelEdit" type="button">Cancel</button>
+            </div>
+          </div>
+
+          <div class="savedActions">
+            <button class="btn" id="btnContinue" type="button">
+              <span class="btn__shine" aria-hidden="true"></span>
+              <span class="btn__text">Continue</span>
+              <span class="btn__loader" aria-hidden="true"></span>
+            </button>
+
+            <button class="btn btn--soft" id="btnSwitch" type="button">
+              <span class="btn__shine" aria-hidden="true"></span>
+              <span class="btn__text">Switch account</span>
+              <span class="btn__loader" aria-hidden="true"></span>
+            </button>
+          </div>
+
+          <p class="hint centerHint">Foto profil & username bisa kamu ubah dari file/folder.</p>
+        </section>
+
+        <!-- LOGIN FORM VIEW -->
+        <form class="form" id="formLogin" autocomplete="on" novalidate>
+          <div class="field">
+            <div class="input">
+              <input id="email" name="email" type="email" inputmode="email" placeholder=" " autocomplete="email" required />
+              <label for="email">Email / akun</label>
+              <span class="input__icon" aria-hidden="true">✉️</span>
+              <span class="input__line" aria-hidden="true"></span>
+            </div>
+            <p class="hint">Contoh: nama@gmail.com</p>
+          </div>
+
+          <div class="field">
+            <div class="input">
+              <input id="password" name="password" type="password" placeholder=" " autocomplete="current-password" required />
+              <label for="password">Password</label>
+              <button class="eye" id="btnEye" type="button" aria-label="Toggle password visibility">👁️</button>
+              <span class="input__line" aria-hidden="true"></span>
+            </div>
+
+            <div class="row">
+              <button class="link" id="btnForgot" type="button">Forgot password?</button>
+              <button class="link muted" id="toggleDemo" type="button" aria-pressed="false">Save locally: OFF</button>
+            </div>
+          </div>
+
+          <!-- tombol login (tetap teks Save for OTP sesuai request) -->
+          <button class="btn" id="btnSaveSignin" type="submit">
+            <span class="btn__shine" aria-hidden="true"></span>
+            <span class="btn__text">Save</span>
+            <span class="btn__loader" aria-hidden="true"></span>
+          </button>
+
+          <div class="meta">
+            <span class="meta__dot">•</span>
+            <span class="meta__pill">Saved Profile</span>
+            <span class="meta__dot">•</span>
+          </div>
+        </form>
+      </div>
+
+      <footer class="card__foot">
+        <p class="fineprint">lace • gingham • sparkles ✧</p>
+      </footer>
+    </section>
+  </main>
+
+  <!-- IMPORTANT: defer biar DOM siap dulu -->
+  <script src="./login.js?v=1" defer></script>
+</body>
+</html>

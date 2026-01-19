@@ -1,0 +1,166 @@
+<!-- ===================== index.html ===================== -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>URTYPE.TYPOLOGY</title>
+  <!-- Note: Revisi login ditaruh di login.html aja -->
+
+  <!-- ✅ LOGIN GATE (HARUS DI PALING ATAS) -->
+  <script>
+    // Jika belum login, langsung lempar ke login.html sebelum halaman render
+    if (localStorage.getItem("session_logged_in") !== "true" || !localStorage.getItem("session_user")) {
+      window.location.replace("login.html");
+    }
+  </script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========= SCREEN 1 ========= -->
+  <section class="screen screen1 is-active is-visible" id="screen1" aria-hidden="false">
+    <div class="screen1-bg"></div>
+    <div class="grain"></div>
+
+    <div class="s1-wrap">
+      <div class="s1-top anim anim-s1" style="--d: 0ms;">URTYPE.TYPOLOGY</div>
+      <br />
+
+      <h1 class="s1-title anim anim-s1" style="--d: 120ms;">
+        Welcome to<br/>
+        Typology!
+      </h1>
+
+      <p class="s1-sub anim anim-s1" style="--d: 260ms;">improve urself by urself here.</p>
+      <br />
+
+      <div class="s1-actions">
+        <a class="s1-btn anim anim-s1" id="btnNext" href="#" style="--d: 420ms;">
+          Next →
+        </a>
+        <br />
+
+        <a
+          class="s1-igIcon anim anim-s1"
+          id="iconInstagram"
+          href="https://share.google/LTkfK4bHUziLlAb3E"
+          target="_blank"
+          rel="noopener"
+          aria-label="Instagram Source"
+          title="@enfjxz"
+          style="--d: 540ms;"
+        >
+          <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9A3.5 3.5 0 0 0 20 16.5v-9A3.5 3.5 0 0 0 16.5 4h-9zm10.25 1.75a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"
+              fill="currentColor"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========= SCREEN 2 ========= -->
+  <section class="screen screen2" id="screen2" aria-hidden="true">
+    <div class="s2-wrap">
+      <div class="s2-header">
+        <div class="s2-titleBlock">
+          <div class="mbti anim anim-s2" style="--d: 0ms;">MBTI</div>
+          <div class="personality anim anim-s2" style="--d: 100ms;">PERSONALITY</div>
+        </div>
+
+        <div class="pillMenu">
+          <a class="pill blue anim anim-s2" style="--d: 160ms;" href="home.html"><span class="dot"></span>Home</a>
+
+          <!-- ✅ Login -> arahkan ke login dan paksa tampil form / switch account -->
+          <a class="pill green anim anim-s2" style="--d: 240ms;" href="login.html?force=1"><span class="dot"></span>Login</a>
+
+          <a class="pill yellow anim anim-s2" style="--d: 320ms;" href="VioletAI.html"><span class="dot"></span>Violet AI</a>
+          <a class="pill red anim anim-s2" style="--d: 400ms;" href="contact.html"><span class="dot"></span>About Me</a>
+        </div>
+
+        <div class="bubble anim anim-s2" style="--d: 260ms;">
+          <div class="bubbleInner">
+            Mengenal lebih dalam diri Anda sendiri dan<br/>
+            menganalisis, improve development personality.<br/>
+            dengan gabungan Teori Jung & Myers.
+
+            <br /><br />
+
+            <a href="theory.html">
+            <button class="moreBtn insideBubble anim anim-s2" id="moreBtn" type="button" style="--d: 460ms;">
+              Selengkapnya
+              <span class="arrowCircle">
+                <span class="arrow">→</span>
+              </span>
+            </button></a>
+          </div>
+
+          <div class="bubbleShadow"></div>
+        </div>
+      </div>
+
+      <br /><br /><br />
+
+      <div class="arches">
+        <div class="archCard anim anim-s2" style="--d: 520ms;">
+          <div class="archLabel">Analyst</div>
+          <div class="archFrame">
+            <img src="../images/analyst.jpg" alt="Analyst" onerror="this.src='https://picsum.photos/800/1000?random=11'">
+          </div>
+        </div>
+
+        <div class="archCard anim anim-s2" style="--d: 620ms;">
+          <div class="archLabel">Diplomats</div>
+          <div class="archFrame">
+            <img src="../images/diplomats.jpg" alt="Diplomats" onerror="this.src='https://picsum.photos/800/1000?random=12'">
+          </div>
+        </div>
+
+        <div class="archCard anim anim-s2" style="--d: 720ms;">
+          <div class="archLabel">Sentinels</div>
+          <div class="archFrame">
+            <img src="../images/sentinels.jpg" alt="Sentinels" onerror="this.src='https://picsum.photos/800/1000?random=13'">
+          </div>
+        </div>
+
+        <div class="archCard anim anim-s2" style="--d: 820ms;">
+          <div class="archLabel">Explorers</div>
+          <div class="archFrame">
+            <img src="../images/explorers.jpg" alt="Explorers" onerror="this.src='https://picsum.photos/800/1000?random=14'">
+          </div>
+        </div>
+      </div>
+
+      <br />
+
+      <button class="backFloating" id="backBtn" type="button" aria-label="Back">←</button>
+
+      <!-- ✅ Logout (tidak merusak layout; styling biar ikut style.css kalau ada) -->
+      <button class="logoutFloating" id="logoutBtn" type="button" aria-label="Logout">Logout</button>
+
+    </div>
+  </section>
+
+  <script>
+    // ✅ Logout handler (hanya hapus session supaya kembali ke login)
+    const logoutBtn = document.getElementById("logoutBtn");
+    if (logoutBtn) {
+      logoutBtn.addEventListener("click", () => {
+        localStorage.removeItem("session_logged_in");
+        localStorage.removeItem("session_user");
+
+        // OPTIONAL (kalau mau profil juga ikut hilang):
+        // localStorage.removeItem("profile_username");
+        // localStorage.removeItem("profile_avatar_dataurl");
+
+        window.location.replace("login.html");
+      });
+    }
+  </script>
+
+  <script src="home.js"></script>
+</body>
+</html>

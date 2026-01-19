@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>UR TYPE! - Result</title>
+  <link rel="stylesheet" href="result.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,800;1,800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header class="topbar">
+    <a class="btn-ghost" href="Home.html">← Back Home</a>
+
+    <div class="topbar-center">
+      <div class="topbar-title">UR TYPE! Result</div>
+      <div class="topbar-sub">Analisis panjang bergaya jurnal • berdasarkan jawabanmu (bukan random).</div>
+    </div>
+
+    <div class="topbar-actions">
+      <a class="btn-soft" href="test.html">Retake</a>
+      <button class="btn-soft" id="exportBtn" type="button">Export JSON</button>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div class="hero-left">
+        <div class="kicker">YOUR RESULT</div>
+        <div class="type-big" id="typeBig">—</div>
+
+        <div class="stack-pill" id="stackPill">—</div>
+
+        <div class="type-grid">
+          <div class="type-row"><span>grant / jung function type</span><b id="grantType">—</b></div>
+          <div class="type-row"><span>axis-based function type</span><b id="axisType">—</b></div>
+          <div class="type-row"><span>myers function type</span><b id="myersFuncType">—</b></div>
+          <div class="type-row"><span>myers letter type</span><b id="myersLetterType">—</b></div>
+        </div>
+
+        <div class="small-note">Foto otomatis diambil dari folder <b>images/</b> berdasarkan tipe.</div>
+      </div>
+
+      <div class="hero-right">
+        <div class="photo-card">
+          <img id="typeImg" src="" alt="MBTI Photo" />
+          <div class="photo-hint" id="photoHint"></div>
+        </div>
+
+        <div class="cf-card">
+          <div class="cf-head">
+            <div class="cf-title">Cognitive Functions (0–50)</div>
+            <div class="cf-sub" id="cfTopNote">Top: —</div>
+          </div>
+          <div class="cf-grid" id="cfGrid"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="journal">
+      <div class="chapter">
+        <div class="chapter-title">Catatan Pembuka</div>
+        <div class="chapter-body" id="preface"></div>
+      </div>
+
+      <div class="chapter">
+        <div class="chapter-title">Potret Tipe Kamu</div>
+        <div class="chapter-sub">Tipe dijelaskan dulu sebelum fungsi kognitif.</div>
+        <div class="chapter-body" id="typeEssay"></div>
+      </div>
+
+      <div class="chapter">
+        <div class="chapter-title">Arsitektur Pikiran</div>
+        <div class="chapter-sub">Kenapa function stack kamu terasa seperti “alur” cara berpikir.</div>
+        <div class="chapter-body" id="stackEssay"></div>
+      </div>
+
+      <div class="chapter">
+        <div class="chapter-title">Fungsi Kognitif (Detail per Fungsi)</div>
+        <div class="chapter-sub">Lengkap + contoh nyata, gaya jurnal.</div>
+        <div class="fn-list" id="fnList"></div>
+      </div>
+
+      <div class="chapter">
+        <div class="chapter-title">Dinamika Sosial, Relasi, dan Cara Kamu Mencintai</div>
+        <div class="chapter-body" id="socialEssay"></div>
+      </div>
+
+      <div class="chapter">
+        <div class="chapter-title">Cara Kamu Belajar, Kerja, dan Mengambil Keputusan</div>
+        <div class="chapter-body" id="workEssay"></div>
+      </div>
+
+      <div class="chapter">
+        <div class="chapter-title">Saat Stres: Pola Bayangan & Mekanisme Bertahan</div>
+        <div class="chapter-body" id="stressEssay"></div>
+      </div>
+
+      <div class="chapter">
+        <div class="chapter-title">Rencana Pengembangan</div>
+        <div class="chapter-sub">Step-by-step yang bisa kamu praktekkan.</div>
+        <div class="chapter-body" id="growthEssay"></div>
+      </div>
+
+      <!-- ✅ REPLACE: Catatan Teknis -> Kirim hasil ke Gmail -->
+      <div class="chapter slim">
+        <div class="chapter-title">Kirim Hasil ke Gmail</div>
+        <div class="chapter-body">
+          <p>Kamu bisa kirim ringkasan hasil ini ke Gmail akun yang sedang login di browser.</p>
+
+          <div class="mail-row">
+            <input id="emailTo" class="mail-input" type="email" placeholder="Email tujuan (misal: kamu@gmail.com)" />
+            <button id="sendGmailBtn" class="btn-home" type="button">Kirim ke Gmail</button>
+          </div>
+
+          <p class="mail-note">
+            Tombol ini akan membuka Gmail Compose dengan subject & isi email otomatis (kamu tinggal klik <b>Send</b>).
+          </p>
+        </div>
+      </div>
+
+      <div class="cta">
+        <a class="btn-home" href="Home.html">GO BACK HOME</a>
+        <div class="cta-sub">Kamu bisa retake kapan aja untuk lihat perubahan pola.</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-card">
+      <div class="footer-title">UR TYPE!</div>
+      <div class="footer-sub">Long-form result inspired by your Canva vibe ✨</div>
+    </div>
+  </footer>
+
+  <script src="result.js"></script>
+</body>
+</html>

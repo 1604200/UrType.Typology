@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>URTYPE.TYPOLOGY — Home</title>
+  <link rel="stylesheet" href="home.css" />
+</head>
+<body>
+
+  <main class="page">
+    <!-- LEFT CANVAS -->
+    <section class="canvas" aria-label="Home bubbles">
+      <div class="petals" aria-hidden="true"></div>
+
+      <!-- ✅ Bubble = A TAG supaya link-nya pasti jalan -->
+      <a class="bubble b1" href="Theory.html" data-key="theory" aria-label="Theory bubble">
+        <span class="bubbleText">Theory</span>
+        <span class="gloss"></span>
+      </a>
+
+      <a class="bubble b2" href="test.html" target="test" rel="Test Bubble"
+         data-key="test" aria-label="Test bubble">
+        <span class="bubbleText">Test</span>
+        <span class="gloss"></span>
+      </a>
+
+      <a class="bubble b3" href="VioletAI.html" data-key="violet" aria-label="Violet assistant bubble">
+        <span class="bubbleText">Violet<br/>assistant</span>
+        <span class="gloss"></span>
+      </a>
+
+      <div class="garden" aria-hidden="true">
+        <div class="grass"></div>
+        <div class="flowers"></div>
+      </div>
+    </section>
+
+    <!-- RIGHT PANEL -->
+    <aside class="panel">
+        <a href="index.html#page2" class="backBtn">← Back</a>
+      
+        <div class="panelInner">
+          <header class="panelHeader">
+            <div class="brand">URTYPE.TYPOLOGY</div>
+          </header>
+
+            
+        <!-- ✅ SEARCH (Google) -->
+        <div class="searchBlock">
+          <div class="searchTitle">SEARCH</div>
+
+          <form class="searchForm" id="searchForm" action="#" method="GET">
+            <input
+              id="searchInput"
+              type="text"
+              placeholder="Cari apa hari ini…"
+              autocomplete="off"
+              name="q"
+            />
+            <button type="submit" aria-label="Search">🔎</button>
+          </form>
+
+          <div class="searchHint">
+            Ketik lalu Enter untuk cari di Google.
+          </div>
+
+          <!-- (chips optional; kalau mau bisa dipakai lagi nanti) -->
+        </div>
+
+        <!-- HOT TOPIC -->
+        <div class="hotTopic">
+          <div class="hotTitle">HOT TOPIC</div>
+
+          <div class="hotBox">
+            <div class="hotBoxInner">
+              <div class="hotDesc">
+                Trending / sering dicari. Klik untuk langsung cari (News/Artikel).
+              </div>
+
+              <div class="hotList" id="hotList"></div>
+
+              <div class="hotActions">
+                <button class="hotActionBtn" id="clearTrending" type="button">Reset Trending</button>
+                <button class="hotActionBtn primary" id="openTrending" type="button">
+                  Buka Trending →
+                </button>
+              </div>
+            </div>
+            <div class="hotShadow" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <footer class="panelFooter">
+          <span class="mini">Tip: klik bubble untuk masuk menu</span>
+        </footer>
+      </div>
+    </aside>
+  </main>
+
+  <script src="homepage.js"></script>
+</body>
+</html>
